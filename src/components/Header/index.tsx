@@ -5,10 +5,7 @@ import { Text } from 'rebass'
 
 import styled from 'styled-components'
 
-import Logo from '../../assets/svg/logo.svg'
-import LogoDark from '../../assets/svg/logo_white.svg'
-import Wordmark from '../../assets/svg/wordmark.svg'
-import WordmarkDark from '../../assets/svg/wordmark_white.svg'
+import logo from '../../assets/svg/specular-logo.svg'
 import { useActiveWeb3React } from '../../hooks'
 import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
@@ -99,6 +96,8 @@ const NetworkCard = styled(YellowCard)`
 
 const UniIcon = styled.div`
   transition: transform 0.3s ease;
+  width:50px!important;
+  height:50px!important;
   :hover {
     transform: rotate(-5deg);
   }
@@ -133,10 +132,8 @@ const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
   [ChainId.GÖRLI]: 'Görli',
   [ChainId.KOVAN]: 'Kovan',
   [ChainId.SEPOLIA]: 'Sepolia',
-  [ChainId.HARDHAT]: 'Hardhat',
-  [ChainId.TAIKO]: 'Taiko',
-  [ChainId.TAIKO_INTERNAL_1]: 'Taiko_Internal_1',
-  [ChainId.TAIKO_TESTNET]: 'Taiko_testnet'
+  [ChainId.SPECULAR]: 'Specular'
+
 }
 
 export default function Header() {
@@ -151,10 +148,9 @@ export default function Header() {
         <HeaderElement>
           <Title href=".">
             <UniIcon>
-              <img src={isDark ? LogoDark : Logo} alt="logo" />
+              <img src={isDark ? logo : logo} alt="logo" />
             </UniIcon>
             <TitleText>
-              <img style={{ marginLeft: '4px', marginTop: '4px' }} src={isDark ? WordmarkDark : Wordmark} alt="logo" />
             </TitleText>
           </Title>
         </HeaderElement>
